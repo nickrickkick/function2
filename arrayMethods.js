@@ -60,7 +60,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 
 // CODE HERE
 const totalPopulation   = populations.reduce((acc, curr) => acc + curr);
-console.log(totalPopulation);
+//console.log(totalPopulation);
 
 
 
@@ -85,7 +85,12 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 */
 
 // CODE HERE
-//const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+const myStrongest  = monstersInYourPocket.filter(monster => {
+  if (monster.CP >= 200){
+    return monster.monster;
+  }
+});
+console.log(myStrongest);
 
 
 
@@ -103,6 +108,8 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 */
 
 // CODE HERE
+const addTotal = orders.map(money => money.price * 1.09).reduce((acc, curr) => acc +curr);
+console.log(addTotal);
 
 
 
