@@ -130,3 +130,5 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 */
 
 // CODE HERE
+const bobsTotal = purchases.map(money => money.price + 0).reduce((acc, curr) => acc + curr);
+console.log(bobsTotal);
