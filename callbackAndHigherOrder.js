@@ -40,15 +40,18 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
+first = (arr, callback) => {
+  callback(arr[0]);
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// first(names, firstName => {
-//   console.log('The first name in names is ' + firstName)
-// })
+first(names, firstName => {
+  console.log('The first name in names is ' + firstName)
+})
 
 
 
@@ -60,15 +63,18 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+last = (arr, callback) => {
+  callback(arr.slice(-1))
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 
 
@@ -82,19 +88,27 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
+contains = (arr, name, callback) => {
+  const findName = arr.filter(names => names === name);
+  if( findName[0] === name){
+    return callback(true);
+  } else {
+    return callback(false);
+  }
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+ contains(names, 'Colt', result => {
+   if(result === true){
+     console.log('Colt is in the array')
+   } else {
+     console.log('Colt is not in the array')
+   }
+ })
 
 
 
@@ -107,6 +121,19 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+uniq = (arr, callback) => {
+  let counter = 0;
+  while(counter < arr.length){
+    for(i = 0; i < arr.length; i++){
+      if(arr[counter] === arr[i] && counter != i){
+        arr.splice(i, 1);
+        //console.log(arr);
+      }
+    }
+    counter++;
+  }
+  return callback(arr);
+}
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -116,7 +143,9 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
-
+uniq(names, uniqArr => {
+  console.log(uniqArr);
+})
 
 
 ////////// PROBLEM 6 //////////
@@ -127,6 +156,11 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE 
+each = (arr, callback) => {
+  for(i = 0; i < arr.length; i++){
+    callback(arr[i], i);
+  }
+}
 
 
 /*
@@ -137,6 +171,9 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 */
 
 // CODE HERE
+each(names, (item, index) =>{
+  console.log(`The item at index ${index} is ${item}`);
+})
 
 
 ////////// PROBLEM 7 //////////
@@ -170,15 +207,22 @@ var users = [
 // Do not edit the code above.
 
 // CODE HERE 
+getUserById = (arr, id, callback) => {
+  for(i = 0; i < arr.length; i++){
+    if(arr[i].id === id){
+      callback(arr[i]);
+    }
+  }
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// getUserById(users, '16t', user => {
-//   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
-// })
+ getUserById(users, '16t', user => {
+   console.log('The user with the id 16t has the email of ' + user.email + ' the name of ' + user.name + ' and the address of ' + user.address) 
+ })
 
 ////////// CHALLENGE //////////
 
