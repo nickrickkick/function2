@@ -6,15 +6,19 @@
 */
 
 // CODE HERE
+function multiply(x, y, callback) {
+  let answer = x*y;
+  callback(answer);
+}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
-// })
+multiply(4, 3, answer => {
+ console.log('The answer is ' + answer) //should console.log 12
+ })
 
 
 
